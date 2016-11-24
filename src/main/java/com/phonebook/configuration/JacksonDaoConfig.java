@@ -22,12 +22,9 @@ public class JacksonDaoConfig {
     public File jsonFile() throws IOException {
         String path = System.getProperty("jsonpath");
         File file;
-        if(path==null){
-            file = new File("src/main/resources/phonebook.json");
-        }else {
-            if(!path.endsWith("/")){
-                path = path+"/";
-            }
+        if(path==null) file = new File("src/main/resources/phonebook.json");
+        else {
+            if(!path.endsWith("/")) path = path + "/";
             file = new File(path+"phonebook.json");
         }
         if (file.createNewFile()) {

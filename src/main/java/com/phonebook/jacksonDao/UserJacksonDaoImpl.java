@@ -44,12 +44,7 @@ public class UserJacksonDaoImpl extends JacksonDaoSupport implements UserDao {
     @Override
     public User read(long id) throws PersistenceException {
         JsonPhonebookModel data = readData();
-        for (Map.Entry<String, User> entry : data.getUsers().entrySet()) {
-            if (entry.getValue().getId() == id) {
-                return entry.getValue();
-            }
-        }
-        return null;
+        return data.getUsers().entrySet().stream().filter(entry -> entry.getValue().getId() == id).findFirst().map(Map.Entry::getValue).orElse(null);
     }
 
     @Override

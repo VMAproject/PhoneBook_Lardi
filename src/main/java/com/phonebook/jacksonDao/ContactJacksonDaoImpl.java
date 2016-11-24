@@ -55,13 +55,12 @@ public class ContactJacksonDaoImpl extends JacksonDaoSupport implements ContactD
     public void update(Contact object) throws PersistenceException {
         JsonPhonebookModel data = readData();
         List<Contact> userContacts = data.getUsers().get(object.getUser().getLogin()).getContacts();
-        for (int i = 0; i < userContacts.size(); i++) {
+        for (int i = 0; i < userContacts.size(); i++)
             if (userContacts.get(i).getId() == object.getId()) {
                 userContacts.set(i, object);
                 writeData(data);
                 break;
             }
-        }
     }
 
     @Override

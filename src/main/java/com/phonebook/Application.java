@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 
@@ -42,9 +43,8 @@ public class Application {
             LOGGER.info(e);
         }
 
-        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+        for (Map.Entry<Object, Object> entry : properties.entrySet())
             System.setProperty((String) entry.getKey(), (String) entry.getValue());
-        }
 
         String profile = properties.getProperty("mysql");
         if (profile != null) {

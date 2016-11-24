@@ -57,11 +57,7 @@ public class AuthController {
             result.put("messagefield", "Ошибка");
             LOGGER.error(e);
         }
-        if (result.isEmpty()) {
-            return new ResponseEntity(HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
-        }
+        return result.isEmpty() ? new ResponseEntity(HttpStatus.OK) : new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
 
     }
 

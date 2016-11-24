@@ -24,9 +24,7 @@ public class ContactJacksonDaoImpl extends JacksonDaoSupport implements ContactD
     public Contact create(Contact contact) throws PersistenceException {
         JsonPhonebookModel data = readData();
         User user = data.getUsers().get(contact.getUser().getLogin());
-        if (user.getContacts() == null) {
-            user.setContacts(new ArrayList<>());
-        }
+        if (user.getContacts() == null) user.setContacts(new ArrayList<>());
         List<Contact> userContacts = user.getContacts();
         long contactId = data.getContactCount() + 1;
         contact.setId(contactId);
@@ -82,9 +80,7 @@ public class ContactJacksonDaoImpl extends JacksonDaoSupport implements ContactD
     public List<Contact> readAll() throws PersistenceException {
         JsonPhonebookModel data = readData();
         List<Contact> result = new ArrayList<>();
-        for (User user : data.getUsers().values()) {
-            result.addAll(user.getContacts());
-        }
+        for (User user : data.getUsers().values()) result.addAll(user.getContacts());
         return result;
     }
 }

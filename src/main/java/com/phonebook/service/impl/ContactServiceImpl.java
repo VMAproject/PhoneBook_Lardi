@@ -19,9 +19,8 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public Contact save(Contact object) throws PersistenceException {
-        if (object.getId() == 0) {
-            return contactDao.create(object);
-        } else {
+        if (object.getId() == 0) return contactDao.create(object);
+        else {
             contactDao.update(object);
             return object;
         }

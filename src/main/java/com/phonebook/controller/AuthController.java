@@ -50,9 +50,7 @@ public class AuthController {
         try {
             User user = parseUserFromRequest(parameters);
             result = validationService.verifyUser(user, parameters.get("passwordconfirmation"));
-            if (result.isEmpty()) {
-                userService.save(user);
-            }
+            if (result.isEmpty()) userService.save(user);
         } catch (PersistenceException e) {
             result.put("messagefield", "Ошибка");
             LOGGER.error(e);

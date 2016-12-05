@@ -25,7 +25,7 @@ public class JacksonDaoConfig {
         if(path==null) file = new File("src/main/resources/phonebook.json");
         else {
             if(!path.endsWith("/")) path = path + "/";
-            file = new File(path+"phonebook.json");
+            file = new File(path+ "resources/phonebook.json");
         }
         if (file.createNewFile()) {
             JsonPhonebookModel data = new JsonPhonebookModel();

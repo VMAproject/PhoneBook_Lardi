@@ -80,11 +80,8 @@ public class ContactController {
     private Contact parseContactFromRequest(Map<String, String> params) {
         Contact contact = new Contact();
         String contactId = params.get("id");
-        if ("".equals(contactId)) {
-            contact.setId(0);
-        } else {
-            contact.setId(Long.parseLong(params.get("id")));
-        }
+        if ("".equals(contactId)) contact.setId(0);
+        else contact.setId(Long.parseLong(params.get("id")));
         contact.setLastName(params.get("lastname"));
         contact.setFirstName(params.get("firstname"));
         contact.setMiddleName(params.get("middlename"));

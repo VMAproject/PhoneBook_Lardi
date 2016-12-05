@@ -50,12 +50,7 @@ public class UserJacksonDaoImpl extends JacksonDaoSupport implements UserDao {
     @Override
     public void update(User object) throws PersistenceException {
         JsonPhonebookModel data = readData();
-        for (User user : data.getUsers().values()) {
-            if (user.getId() == object.getId()) {
-                data.getUsers().remove(user.getLogin());
-                break;
-            }
-        }
+        data.getUsers().values().stream().filter(user -> user.getId() == object.getId()).findFirst().ifPresent(user -> data.getUsers().remove(user.getLogin()));
         data.getUsers().put(object.getLogin(), object);
         writeData(data);
     }

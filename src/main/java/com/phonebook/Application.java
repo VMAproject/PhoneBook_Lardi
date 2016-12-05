@@ -49,9 +49,7 @@ public class Application {
         String profile = properties.getProperty("mysql");
         if (profile != null) {
             System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, profile);
-            if (profile.equals("mysql")) {
-                System.setProperty("GENERATED_KEY_NAME", "GENERATED_KEY");
-            }
+            if (profile.equals("mysql")) System.setProperty("GENERATED_KEY_NAME", "GENERATED_KEY");
         }
     }
 }

@@ -1,1 +1,1 @@
-{"userCount":0,"contactCount":0,"users":{}}
+{"userCount":1,"contactCount":0,"users":{"admin":{"id":1,"login":"admin","password":"d033e22ae348aeb5660fc2140aec35850c4da997","name":"Админ","contacts":[]}}}

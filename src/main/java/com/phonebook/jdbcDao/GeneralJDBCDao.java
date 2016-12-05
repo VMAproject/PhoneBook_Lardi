@@ -23,11 +23,7 @@ public class GeneralJDBCDao extends JdbcDaoSupport {
     protected Long parseLongFromHolder(KeyHolder holder) {
         Long id;
         Object tmp = holder.getKeys().get(GENERATED_KEY_NAME);
-        if (tmp instanceof Long) {
-            id = (Long) tmp;
-        } else {
-            id = ((Integer) tmp).longValue();
-        }
+        id = tmp instanceof Long ? (Long) tmp : Long.valueOf(((Integer) tmp).longValue());
         return id;
     }
 }

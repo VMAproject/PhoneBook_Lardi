@@ -54,9 +54,7 @@ public class UserServiceImpl implements UserService {
         User user;
         try {
             user = userDao.readBylogin(login);
-            if (user == null) {
-                throw new UsernameNotFoundException("user not found");
-            }
+            if (user == null) throw new UsernameNotFoundException("user not found");
         } catch (PersistenceException e) {
             LOGGER.error(e);
             throw new UsernameNotFoundException("error reading user from DB");

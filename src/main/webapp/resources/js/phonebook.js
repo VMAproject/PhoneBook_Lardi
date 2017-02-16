@@ -1,4 +1,3 @@
-
 $(document).on("submit", "#registration", function (event) {
     var $form = $(this);
     $.ajax({

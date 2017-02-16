@@ -1,1 +1,1 @@
-{"userCount":1,"contactCount":0,"users":{"admin":{"id":1,"login":"admin","password":"d033e22ae348aeb5660fc2140aec35850c4da997","name":"Админ","contacts":[]}}}
+{"userCount":2,"contactCount":0,"users":{"admin":{"id":1,"login":"admin","password":"d033e22ae348aeb5660fc2140aec35850c4da997","name":"Админ","contacts":[]},"alex65":{"id":2,"login":"alex65","password":"8422587f94a4a5b41e7412d600b2a701af7dfa29","name":"Верламов","contacts":[]}}}
